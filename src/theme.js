@@ -2,14 +2,12 @@ import { red } from '@material-ui/core/colors';
 import { createMuiTheme } from '@material-ui/core/styles';
 
 const colors = {
-  peach: '#FFAAA0',
-  lightBlue: '#87D4D1',
-  teal: '#8AD0C2',
-  lightYellow: '#FEFEA0',
-  purple: '#838BC2',
-  blueGreen: '#516D79',
-  appleGreen: '#EDFFDD',
+  color1: '#B6E4D0',
+  color1dark: '#3D5A59',
+  color2: '#FCB5AC',
+
   dirtyWhite: '#F8F8F8',
+  gray: '#555555',
   black: '#000000',
   white: '#FFFFFF',
 }
@@ -28,13 +26,16 @@ const theme = createMuiTheme({
     },
     background: {
       default: colors.dirtyWhite,
-      paper: colors.lightBlue,
+      paper: colors.color1dark,
     },
   },
   typography: {
     fontFamily: '"Montserrat", sans-serif',
     h4 : {
       fontWeight: '800',
+    },
+    h5 : {
+      fontWeight: '300',
     }
   },
   overrides: {
@@ -53,14 +54,14 @@ const theme = createMuiTheme({
         color: colors.black,
       },
       colorTextSecondary: {
-        color: colors.black,
+        color: colors.dirtyWhite,
       },
     },
     MuiDrawer: {
       paper: {
-        background: colors.peach,
+        background: colors.color1,
         '& *': {
-           color: colors.lightYellow, 
+           color: colors.color1dark, 
         },
       },
     },
