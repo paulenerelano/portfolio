@@ -1,0 +1,49 @@
+{
+    "name": "Julianne Paulene Relano",
+    "subtitle": "Software Engineer",
+    "contact": {
+        "mobile": "+63 977 819 3976",
+        "email": "paulene.relano@gmail.com"
+    },
+    "about": "Software engineer with 6 years of experience in embedded applications, protocol stacks, mobile and web development. Able to easily adapt to different projects on different technology domains with minimal ramp-up time.",
+    "experience": [
+        {
+            "date": "June 2014 – March 2017",
+            "title": "Software Engineer",
+            "company": {
+                "name": "Canon Information Technologies Philippines Inc.",
+                "thumbnail": ""
+            },
+            "employmentType": "Full-time",
+            "description": [
+                "Contributed to the development and design of company’s Bluetooth Core Stack based on Bluetooth 4.1, 4.2 and 5 specifications"
+            ]
+        }
+    ],
+    "education" : [
+        {
+            "date": "date",
+            "school": "uplb",
+            "degree": "comsci",
+            "thumbnail": ""
+        }
+    ],
+    "skills" : [
+        {
+            "skill": "sing",
+            "confidenceLevel": "5"
+        }
+    ],
+    "portfolio" : [
+        {
+            "name": "",
+            "url": ""
+        }
+    ],
+    "externalLinks" : [
+        {
+            "name": "",
+            "url": ""
+        }
+    ]
+}
