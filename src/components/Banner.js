@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import { Component } from "react";
 import { withStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 
-import { CssBaseline, AppBar, Toolbar, Paper } from '@material-ui/core';
+import { CssBaseline, Paper } from '@material-ui/core';
 
 const styles = theme => ({
     root: {
