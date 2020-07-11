@@ -14,7 +14,7 @@ const styles = theme => ({
     card: {
         background: theme.palette.background.default,
         margin: '1em',
-        minHeight: '47vh',
+        minHeight: '55vh',
     },
     media: {
         height: 140,
@@ -44,7 +44,7 @@ class Projects extends Component {
                                         {project.name}
                                     </Link>
                                 </Typography>
-                                <Typography variant='body1'>
+                                <Typography variant='body2'>
                                     {project.description}
                                 </Typography>
                             </CardContent>
