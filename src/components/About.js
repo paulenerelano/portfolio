@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 import TrackVisibility from 'react-on-screen';
 
-import { CssBaseline, Paper, Grid, Grow } from '@material-ui/core';
+import { CssBaseline, Paper, Grow } from '@material-ui/core';
 import Banner from './Banner';
 
 const styles = theme => ({
@@ -31,7 +31,7 @@ class About extends Component {
                 <CssBaseline/>
                 <div className={classes.root}>
                     <Banner title="About"/>
-                    <TrackVisibility>
+                    <TrackVisibility partialVisibility>
                     {({ isVisible }) => 
                         <Grow in={isVisible}
                             {...(isVisible ? { timeout: 500 } : {})}

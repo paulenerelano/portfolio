@@ -40,6 +40,7 @@ const styles = theme => ({
         width: DRAWER_WIDTH,
     },
     content: {
+        width: `calc(100% - ${DRAWER_WIDTH}px)`,
         flexGrow: 1,
         backgroundColor: theme.palette.background.default,
         padding: theme.spacing(0),

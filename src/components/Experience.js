@@ -34,14 +34,14 @@ class Experience extends Component {
         return (
             <Fragment>
                 <div className={classes.root}>
-                    <CssBaseline/>
-                    <Banner title="Experience"/>
-                    <TrackVisibility>
-                    {({ isVisible }) => 
-                        <Timeline align='left'>
-                            {experience.map((item, index) => {
-                                let delay = (200 * index) + 500
-                                return (
+                <CssBaseline/>
+                <Banner title="Experience"/>
+                    <Timeline align='left'>
+                        {experience.map((item, index) => {
+                            let delay = (200 * index) + 500
+                            return (
+                                <TrackVisibility partialVisibility>
+                                {({ isVisible }) => 
                                     <TimelineItem>
                                         <TimelineOppositeContent>
                                             <Slide direction="right" in={isVisible}
@@ -69,11 +69,11 @@ class Experience extends Component {
                                             </Slide>
                                         </TimelineContent>
                                     </TimelineItem>
-                                )
-                            })}
-                        </Timeline>
-                    }
-                    </TrackVisibility>
+                                }
+                                </TrackVisibility>
+                            )
+                        })}
+                    </Timeline>
                 </div>
             </Fragment>
         );

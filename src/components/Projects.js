@@ -4,57 +4,70 @@ import { Component } from "react";
 import { withStyles } from '@material-ui/styles';
 import TrackVisibility from 'react-on-screen';
 
-import { CssBaseline, Paper, Grid, Card, CardActionArea, CardMedia, CardContent, Typography, Link } from '@material-ui/core';
+import { CssBaseline, Grow, Grid, Card, CardActionArea, CardMedia, CardContent, Typography, Link } from '@material-ui/core';
 import Banner from './Banner';
 
 const styles = theme => ({
     root: {
-        height: '100vh'
+        minHeight: '100vh'
     },
     card: {
         background: theme.palette.background.default,
         margin: '1em',
-        padding: '1em',
+        minHeight: '47vh',
     },
     media: {
         height: 140,
     },
 });
 
+
 class Projects extends Component {
 
+    createCard = (isVisible, project, index) => {
+        const {classes} = this.props;
+        return (
+            <Grow in={isVisible}
+                {...(isVisible ? { timeout: 500 + (200 * index) } : {})}
+            >
+                <Grid item xs={4}>
+                    <Card className={classes.card}>
+                        <CardActionArea>
+                            <CardMedia 
+                                image={project.thumbnail}
+                                className={classes.media}
+                            />
+                            <CardContent>
+                                <Typography variant='h5'>
+                                    <Link href={project.url} target="_blank">
+                                        {project.name}
+                                    </Link>
+                                </Typography>
+                                <Typography variant='body'>
+                                    {project.description}
+                                </Typography>
+                            </CardContent>
+                        </CardActionArea>
+                    </Card>
+                </Grid>
+            </Grow>
+        )
+    }
 
     render() {
         const {projects, classes} = this.props;
-
 
         return (
             <Fragment>
                 <div className={classes.root}>
                     <CssBaseline/>
                     <Banner title="Projects"/>
-                    <TrackVisibility>
+                    <TrackVisibility partialVisibility>
                     {({ isVisible }) => 
-                        <Grid container>
-                            {projects.map((project) => { 
+                        <Grid container >
+                            {projects.map((project, index) => { 
                                 return (
-                                    <Grid item xs={3}>
-                                        <Card className={classes.card}>
-                                            <CardActionArea>
-                                                <CardMedia 
-                                                    image={project.thumbnail}
-                                                    className={classes.media}
-                                                />
-                                                <CardContent>
-                                                    <Typography variant='h5'>
-                                                        <Link href={project.url}>
-                                                            {project.name}
-                                                        </Link>
-                                                    </Typography>
-                                                </CardContent>
-                                            </CardActionArea>
-                                        </Card>
-                                    </Grid>
+                                    this.createCard(isVisible, project, index)
                                 )
                             })}
                         </Grid>
