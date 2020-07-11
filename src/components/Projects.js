@@ -29,6 +29,7 @@ class Projects extends Component {
         return (
             <Grow in={isVisible}
                 {...(isVisible ? { timeout: 500 + (200 * index) } : {})}
+                key={"proj" + index}
             >
                 <Grid item xs={4}>
                     <Card className={classes.card}>
@@ -43,7 +44,7 @@ class Projects extends Component {
                                         {project.name}
                                     </Link>
                                 </Typography>
-                                <Typography variant='body'>
+                                <Typography variant='body1'>
                                     {project.description}
                                 </Typography>
                             </CardContent>

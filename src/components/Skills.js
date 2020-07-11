@@ -29,6 +29,7 @@ class Skills extends Component {
         return (
             <Grow in={isVisible}
                 {...(isVisible ? { timeout: 500 + (200 * index) } : {})}
+                key={"skill"+index}
             >
                 <Grid item xs={2}>
                     <Card className={classes.card}>

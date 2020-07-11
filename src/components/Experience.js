@@ -43,7 +43,7 @@ class Experience extends Component {
                         {experience.map((item, index) => {
                             let delay = (200 * index) + 500
                             return (
-                                <TrackVisibility once>
+                                <TrackVisibility once key={"timeline"+index}>
                                 {({ isVisible }) => 
                                     <TimelineItem>
                                         <TimelineOppositeContent>
@@ -69,9 +69,9 @@ class Experience extends Component {
                                                         {item.company.name}
                                                     </Typography>
                                                     <Divider/>
-                                                    {item.description.map((desc) => {
+                                                    {item.description.map((desc, index) => {
                                                         return (
-                                                            <Typography variant='body1'>
+                                                            <Typography variant="body1" key={"desc"+index}>
                                                                 {"- " + desc}
                                                             </Typography>)
                                                     })}                                                    
