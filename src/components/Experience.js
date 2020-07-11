@@ -11,17 +11,20 @@ import TimelineOppositeContent from '@material-ui/lab/TimelineOppositeContent';
 import TimelineDot from '@material-ui/lab/TimelineDot';
 import TrackVisibility from 'react-on-screen';
 
-import { CssBaseline, Typography, Paper, Slide} from '@material-ui/core';
+import { CssBaseline, Typography, Paper, Slide, Divider} from '@material-ui/core';
 import Banner from './Banner';
 
 const styles = theme => ({
     root: {
-        height: '100vh'
+        minHeight: '100vh'
     },
     paper: {
         background: theme.palette.background.default,
         margin: '1em',
         padding: '1em',
+    },
+    subtitle: {
+        color: "#3D5A59",
     }
 });
 
@@ -40,7 +43,7 @@ class Experience extends Component {
                         {experience.map((item, index) => {
                             let delay = (200 * index) + 500
                             return (
-                                <TrackVisibility partialVisibility>
+                                <TrackVisibility once>
                                 {({ isVisible }) => 
                                     <TimelineItem>
                                         <TimelineOppositeContent>
@@ -59,12 +62,19 @@ class Experience extends Component {
                                             <Slide direction="left" in={isVisible}
                                                 {...(isVisible ? { timeout: delay } : {})}>
                                                 <Paper className={classes.paper}>
-                                                    <Typography variant='h5'>
+                                                    <Typography variant='h6'>
                                                         {item.title}
                                                     </Typography>
-                                                    <Typography variant='body1'>
-                                                        {item.description[0]}
+                                                    <Typography variant="subtitle2" variant='h6'>
+                                                        {item.company.name}
                                                     </Typography>
+                                                    <Divider/>
+                                                    {item.description.map((desc) => {
+                                                        return (
+                                                            <Typography variant='body1'>
+                                                                {"- " + desc}
+                                                            </Typography>)
+                                                    })}                                                    
                                                 </Paper>
                                             </Slide>
                                         </TimelineContent>

@@ -56,7 +56,7 @@ const theme = createMuiTheme({
       },
       colorTextSecondary: {
         color: colors.dirtyWhite,
-      },
+      }
     },
     MuiDrawer: {
       paper: {
