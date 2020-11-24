@@ -8,7 +8,20 @@
     "about": "Software engineer with 6 years of experience in embedded applications, protocol stacks, mobile and web development. Able to easily adapt to different projects on different technology domains with minimal ramp-up time.",
     "experience": [
         {
-            "date": "April 2020 – Present",
+            "date": "October 2020 – Present",
+            "title": "Engineer - Java",
+            "company": {
+                "name": "ING Business Shared Services",
+                "thumbnail": ""
+            },
+            "employmentType": "Full-time",
+            "description": [
+                "Development engineer for Wholesale Banking application module.",
+                "Handles incidents and deployment related tasks of the assigned application module"
+            ]
+        },
+        {
+            "date": "April 2020 – August 2020",
             "title": "Principal Software Engineer",
             "company": {
                 "name": "Canon Information Technologies Philippines Inc.",

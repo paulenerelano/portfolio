@@ -30,8 +30,58 @@ const styles = theme => ({
 
 class Experience extends Component {
 
-    render() {
+    getExperience = () => {
         const {experience, classes} = this.props;
+
+        return experience.map((item, index) => {
+            let delay = (200 * index) + 500
+            return (
+                <TimelineItem>
+                    <TimelineOppositeContent>
+                        <TrackVisibility once key={"timeline"+index}>
+                        {({ isVisible }) => 
+                            <Slide direction={index%2===0? "right" : "left"} in={isVisible}
+                                {...(isVisible ? { timeout: delay } : {})}>
+                                <Typography>
+                                    {item.date}
+                                </Typography>
+                            </Slide>}
+                        </TrackVisibility>
+                    </TimelineOppositeContent>
+                    <TimelineSeparator>
+                        <TimelineDot/>
+                        <TimelineConnector />
+                    </TimelineSeparator>
+                    <TimelineContent>
+                        <TrackVisibility once key={"timeline"+index}>
+                        {({ isVisible }) => 
+                            <Slide direction={index%2===1? "right" : "left"} in={isVisible}
+                                {...(isVisible ? { timeout: delay } : {})}>
+                                    <Paper className={classes.paper}>
+                                        <Typography variant='h5'>
+                                            {item.title}
+                                        </Typography>
+                                        <Typography variant="subtitle2" variant='h6'>
+                                            {item.company.name}
+                                        </Typography>
+                                        <Divider/>
+                                        {item.description.map((desc, index) => {
+                                            return (
+                                                <Typography variant="body2" key={"desc"+index}>
+                                                    {"- " + desc}
+                                                </Typography>)
+                                        })}                                                    
+                                    </Paper>
+                            </Slide>}
+                        </TrackVisibility>
+                    </TimelineContent>
+                </TimelineItem>
+            )
+        })
+    }
+
+    render() {
+        const {classes} = this.props;
 
 
         return (
@@ -39,50 +89,8 @@ class Experience extends Component {
                 <div className={classes.root}>
                 <CssBaseline/>
                 <Banner title="Experience"/>
-                    <Timeline align='left'>
-                        {experience.map((item, index) => {
-                            let delay = (200 * index) + 500
-                            return (
-                                <TrackVisibility once key={"timeline"+index}>
-                                {({ isVisible }) => 
-                                    <TimelineItem>
-                                        <TimelineOppositeContent>
-                                            <Slide direction="right" in={isVisible}
-                                                {...(isVisible ? { timeout: delay } : {})}>
-                                                <Typography>
-                                                    {item.date}
-                                                </Typography>
-                                            </Slide>
-                                        </TimelineOppositeContent>
-                                        <TimelineSeparator>
-                                            <TimelineDot/>
-                                            <TimelineConnector />
-                                        </TimelineSeparator>
-                                        <TimelineContent>
-                                            <Slide direction="left" in={isVisible}
-                                                {...(isVisible ? { timeout: delay } : {})}>
-                                                <Paper className={classes.paper}>
-                                                    <Typography variant='h6'>
-                                                        {item.title}
-                                                    </Typography>
-                                                    <Typography variant="subtitle2" variant='h6'>
-                                                        {item.company.name}
-                                                    </Typography>
-                                                    <Divider/>
-                                                    {item.description.map((desc, index) => {
-                                                        return (
-                                                            <Typography variant="body1" key={"desc"+index}>
-                                                                {"- " + desc}
-                                                            </Typography>)
-                                                    })}                                                    
-                                                </Paper>
-                                            </Slide>
-                                        </TimelineContent>
-                                    </TimelineItem>
-                                }
-                                </TrackVisibility>
-                            )
-                        })}
+                    <Timeline align='alternate'>
+                        {this.getExperience()}
                     </Timeline>
                 </div>
             </Fragment>
