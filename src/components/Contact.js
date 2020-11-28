@@ -25,14 +25,14 @@ class Projects extends Component {
 
 
     render() {
-        const {contact, externalLinks, classes} = this.props;
+        const {contact, handleDrawerToggle, classes} = this.props;
 
 
         return (
             <Fragment>
                 <div className={classes.root} >
                     <CssBaseline/>
-                    <Banner title="Contact"/>
+                    <Banner title="Contact" handleDrawerToggle={handleDrawerToggle}/>
                     <TrackVisibility partialVisibility>
                         {({ isVisible }) => 
                         <Grow in={isVisible}
@@ -40,40 +40,40 @@ class Projects extends Component {
                         >
                             <Paper elevation={3} className={classes.paper}>
                                 <Grid container spacing={1}>
-                                    <Grid item xs={1}>
+                                    <Grid item xs={2} lg={1}>
                                         <Link href={'tel:'+ contact.mobile}>
                                         <Avatar alt='Phone'>
                                             <Tooltip title="Call Paulene"><PhoneIphoneIcon/></Tooltip>
                                         </Avatar>
                                         </Link>
                                     </Grid>
-                                    <Grid item xs={11}>
+                                    <Grid item xs={10} lg={11}>
                                         <Link href={'tel:'+ contact.mobile}>
-                                            <Typography variant='h6'>{contact.mobile}</Typography>
+                                            <Typography variant='body2'>{contact.mobile}</Typography>
                                         </Link>
                                     </Grid>
-                                    <Grid item xs={1}>
+                                    <Grid item xs={2} lg={1}>
                                         <Link href={'mailto:' + contact.email}>
                                         <Avatar alt='Email'>
                                             <Tooltip title='Email Paulene'><EmailIcon/></Tooltip>
                                         </Avatar>
                                         </Link>
                                     </Grid>
-                                    <Grid item xs={11}>
+                                    <Grid item xs={10} lg={11}>
                                         <Link href={'mailto:' + contact.email}>
-                                            <Typography variant='h6'>{contact.email}</Typography>
+                                            <Typography variant='body2'>{contact.email}</Typography>
                                         </Link>
                                     </Grid>
-                                    <Grid item xs={1}>
+                                    <Grid item xs={2} lg={1}>
                                         <Link href={contact.linkedin} target='_blank'>
                                         <Avatar alt='LinkedIn'>
                                             <Tooltip title='View Paulene on LinkedIn'><LinkedInIcon/></Tooltip>
                                         </Avatar>
                                         </Link>
                                     </Grid>
-                                    <Grid item xs={11}>
+                                    <Grid item xs={10} lg={11}>
                                         <Link href={contact.linkedin} target='_blank'>
-                                            <Typography variant='h6'>{contact.linkedin}</Typography>
+                                            <Typography variant='body2'>{contact.linkedin}</Typography>
                                         </Link>
                                     </Grid>
                                 </Grid>

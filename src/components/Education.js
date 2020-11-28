@@ -21,17 +21,17 @@ class Education extends Component {
 
 
     render() {
-        const {education, classes} = this.props;
+        const {education, classes, handleDrawerToggle} = this.props;
 
 
         return (
             <Fragment>
                 <div className={classes.root} >
                     <CssBaseline/>
-                    <Banner title="Education"/>
+                    <Banner title="Education" handleDrawerToggle={handleDrawerToggle}/>
                     <Grid container>
-                        {education.map((item) => {
-                            return <Grid item xs={12} lg={4}>
+                        {education.map((item, index) => {
+                            return <Grid item xs={12} lg={4} key={'educ' + index}>
                                 <TrackVisibility partialVisibility>
                                 {({ isVisible }) => 
                                     <Grow in={isVisible}

@@ -11,7 +11,7 @@ import TimelineOppositeContent from '@material-ui/lab/TimelineOppositeContent';
 import TimelineDot from '@material-ui/lab/TimelineDot';
 import TrackVisibility from 'react-on-screen';
 
-import { CssBaseline, Typography, Paper, Slide, Divider} from '@material-ui/core';
+import { CssBaseline, Typography, Paper, Slide, Divider, Hidden} from '@material-ui/core';
 import Banner from './Banner';
 
 const styles = theme => ({
@@ -35,7 +35,7 @@ class Experience extends Component {
         return experience.map((item, index) => {
             let delay = (200 * index) + 500
             return (
-                <TimelineItem>
+                <TimelineItem key={'exp' + index}>
                     <TimelineSeparator>
                         <TimelineDot/>
                         <TimelineConnector />
@@ -74,17 +74,24 @@ class Experience extends Component {
     }
 
     render() {
-        const {classes} = this.props;
+        const {classes, handleDrawerToggle, theme} = this.props;
 
 
         return (
             <Fragment>
                 <div className={classes.root}>
                 <CssBaseline/>
-                <Banner title="Experience"/>
+                <Banner title="Experience" handleDrawerToggle={handleDrawerToggle}/>
+                <Hidden smDown>
                     <Timeline align='alternate'>
                         {this.getExperience()}
                     </Timeline>
+                </Hidden>
+                <Hidden mdUp>
+                    <Timeline align='right'>
+                        {this.getExperience()}
+                    </Timeline>
+                </Hidden>
                 </div>
             </Fragment>
         );

@@ -10,7 +10,7 @@ const colors = {
   textPrimary: '#542A48',
   textSecondary: '#d28648',
 
-  paper: '#ecb663',
+  paper: '#efc27c',
 
   black: '#000000',
 }
@@ -77,7 +77,7 @@ const theme = createMuiTheme({
     MuiAvatar: {
       colorDefault: {
         backgroundColor: colors.drawerBG,
-        color: colors.drawerFont
+        color: colors.textPrimary
       }
     },
     MuiTimelineDot: {

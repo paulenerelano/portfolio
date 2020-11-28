@@ -30,7 +30,7 @@ class Projects extends Component {
                 {...(isVisible ? { timeout: 500 + (200 * index) } : {})}
                 key={"proj" + index}
             >
-                <Grid item xs={4}>
+                <Grid item xs={12} lg={4} >
                     <Card className={classes.card}>
                         <CardActionArea>
                             <CardMedia 
@@ -55,13 +55,13 @@ class Projects extends Component {
     }
 
     render() {
-        const {projects, classes} = this.props;
+        const {projects, classes, handleDrawerToggle} = this.props;
 
         return (
             <Fragment>
                 <div className={classes.root}>
                     <CssBaseline/>
-                    <Banner title="Projects"/>
+                    <Banner title="Projects" handleDrawerToggle={handleDrawerToggle}/>
                     <TrackVisibility partialVisibility>
                     {({ isVisible }) => 
                         <Grid container >
