@@ -4,7 +4,7 @@ import { Component } from "react";
 import { withStyles } from '@material-ui/styles';
 import TrackVisibility from 'react-on-screen';
 
-import { CssBaseline, Grow, Grid, Card, CardActionArea, CardMedia, CardContent, Typography, Link } from '@material-ui/core';
+import { CssBaseline, Grow, Grid, Card, CardActionArea, CardMedia, CardContent, Typography } from '@material-ui/core';
 import Banner from './Banner';
 
 const styles = theme => ({
@@ -12,7 +12,6 @@ const styles = theme => ({
         minHeight: '100vh'
     },
     card: {
-        background: theme.palette.background.default,
         margin: '1em',
         minHeight: '10vh',
     },

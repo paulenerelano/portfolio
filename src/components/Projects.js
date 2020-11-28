@@ -12,7 +12,6 @@ const styles = theme => ({
         minHeight: '100vh'
     },
     card: {
-        background: theme.palette.background.default,
         margin: '1em',
         minHeight: '55vh',
     },

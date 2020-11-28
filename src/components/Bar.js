@@ -10,6 +10,7 @@ const styles = theme => ({
     root: {
         margin: '1em',
         padding: '0.25em',
+        color: theme.palette.primary.bar,
         backgroundColor: theme.palette.primary.bar
     },
 });

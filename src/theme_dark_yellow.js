@@ -2,34 +2,37 @@ import { red } from '@material-ui/core/colors';
 import { createMuiTheme } from '@material-ui/core/styles';
 
 const colors = {
-  drawerFont: '#F9F9F7', // drawer font
-  drawerBG: '#d28648',
-  bannerBG: '#F9F9F7',
-  defaultBG: '#F9F9F7',
+  primary: '#FFEE58', // drawer font,
+  color1: '#424242',  // drawerBG, navbarBG
+  color1Dark: '#333333',
+  defaultBG: '#AAAAAA', // default BG
 
-  textPrimary: '#542A48',
-  textSecondary: '#d28648',
+  textPrimary: '#000000',
+  textSecondary: '#FFEE58',
 
-  paper: '#ecb663',
-
+  dirtyWhite: '#F8F8F8',
+  gray: '#555555',
   black: '#000000',
+  yellow: '#FFEB3B',
+  white: '#FFFFFF',
 }
 
 // A custom theme for this app
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: colors.textPrimary,
-      bar: colors.bannerBG,
+      main: colors.black,
+      bar: colors.color1,
     },
     secondary: {
-      main: colors.drawerBG,
+      main: colors.white,
     },
     error: {
       main: red.A400,
     },
     background: {
       default: colors.defaultBG,
+      paper: colors.primary,
     },
   },
   typography: {
@@ -62,32 +65,22 @@ const theme = createMuiTheme({
     },
     MuiDrawer: {
       paper: {
-        background: colors.drawerBG,
+        background: colors.color1,
         '& *': {
-           color: colors.drawerFont, 
+           color: colors.primary, 
         },
       },
     },
     MuiPaper: {
       root: {
-        backgroundColor: colors.paper,
+        backgroundColor: colors.yellow,
         color: colors.textPrimary
       } 
     },
     MuiAvatar: {
       colorDefault: {
-        backgroundColor: colors.drawerBG,
-        color: colors.drawerFont
-      }
-    },
-    MuiTimelineDot: {
-      defaultGrey: {
-        backgroundColor: colors.textSecondary
-      }
-    },
-    MuiTimelineConnector: {
-      root: {
-        backgroundColor: colors.textSecondary
+        backgroundColor: colors.color1,
+        color: colors.textSecondary
       }
     }
   }

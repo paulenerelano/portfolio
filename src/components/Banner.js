@@ -11,6 +11,7 @@ const styles = theme => ({
         display: 'flex',
         margin: 0,
         padding: '1em',
+        backgroundColor: theme.palette.primary.bar,
     },
     toolbar: {
     ...theme.mixins.toolbar,

@@ -2,28 +2,32 @@ import { red } from '@material-ui/core/colors';
 import { createMuiTheme } from '@material-ui/core/styles';
 
 const colors = {
-  drawerFont: '#F9F9F7', // drawer font
-  drawerBG: '#d28648',
-  bannerBG: '#F9F9F7',
-  defaultBG: '#F9F9F7',
+  drawerFont: '#EFFCEB', // drawer font
+  drawerBG: '#254E58',
+  bannerBG: '#254E58',
+  defaultBG: '#88BDBC',
 
-  textPrimary: '#542A48',
-  textSecondary: '#d28648',
+  textPrimary: '#000000',
+  textSecondary: '#EFFCEB',
 
-  paper: '#ecb663',
+  paper: '#EFFCEB',
 
+  dirtyWhite: '#F8F8F8',
+  gray: '#555555',
   black: '#000000',
+  yellow: '#FFEB3B',
+  white: '#FFFFFF',
 }
 
 // A custom theme for this app
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: colors.textPrimary,
+      main: colors.black,
       bar: colors.bannerBG,
     },
     secondary: {
-      main: colors.drawerBG,
+      main: colors.white,
     },
     error: {
       main: red.A400,
@@ -77,7 +81,7 @@ const theme = createMuiTheme({
     MuiAvatar: {
       colorDefault: {
         backgroundColor: colors.drawerBG,
-        color: colors.drawerFont
+        color: colors.textSecondary
       }
     },
     MuiTimelineDot: {

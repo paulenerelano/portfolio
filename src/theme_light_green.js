@@ -2,34 +2,32 @@ import { red } from '@material-ui/core/colors';
 import { createMuiTheme } from '@material-ui/core/styles';
 
 const colors = {
-  drawerFont: '#F9F9F7', // drawer font
-  drawerBG: '#d28648',
-  bannerBG: '#F9F9F7',
-  defaultBG: '#F9F9F7',
+  color1: '#B6E4D0',
+  color1dark: '#3D5A59',
+  color2: '#FCB5AC',
 
-  textPrimary: '#542A48',
-  textSecondary: '#d28648',
-
-  paper: '#ecb663',
-
+  dirtyWhite: '#F8F8F8',
+  gray: '#555555',
   black: '#000000',
+  white: '#FFFFFF',
 }
 
 // A custom theme for this app
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: colors.textPrimary,
-      bar: colors.bannerBG,
+      main: colors.black,
+      bar: colors.color1dark,
     },
     secondary: {
-      main: colors.drawerBG,
+      main: colors.white,
     },
     error: {
       main: red.A400,
     },
     background: {
-      default: colors.defaultBG,
+      default: colors.dirtyWhite,
+      paper: colors.color1dark,
     },
   },
   typography: {
@@ -54,41 +52,24 @@ const theme = createMuiTheme({
     },
     MuiTypography: {
       colorTextPrimary: {
-        color: colors.textPrimary,
+        color: colors.black,
       },
       colorTextSecondary: {
-        color: colors.textSecondary,
+        color: colors.dirtyWhite,
       }
     },
     MuiDrawer: {
       paper: {
-        background: colors.drawerBG,
+        background: colors.color1,
         '& *': {
-           color: colors.drawerFont, 
+           color: colors.color1dark, 
         },
       },
     },
     MuiPaper: {
       root: {
-        backgroundColor: colors.paper,
-        color: colors.textPrimary
+        backgroundColor: colors.color1,
       } 
-    },
-    MuiAvatar: {
-      colorDefault: {
-        backgroundColor: colors.drawerBG,
-        color: colors.drawerFont
-      }
-    },
-    MuiTimelineDot: {
-      defaultGrey: {
-        backgroundColor: colors.textSecondary
-      }
-    },
-    MuiTimelineConnector: {
-      root: {
-        backgroundColor: colors.textSecondary
-      }
     }
   }
 });

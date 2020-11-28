@@ -10,10 +10,12 @@ import Banner from './Banner';
 
 const styles = theme => ({
     root: {
-        height: '100vh'
+        height: '100vh',
+        backgroundImage: "url("+process.env.PUBLIC_URL+"/bg.jpg)",
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover'
     },
     paper: {
-        background: theme.palette.background.default,
         margin: '1em',
         padding: '1em',
     }
@@ -36,7 +38,7 @@ class About extends Component {
                         <Grow in={isVisible}
                             {...(isVisible ? { timeout: 500 } : {})}
                         >
-                            <Paper elevation={3} square={true} className={classes.paper}>
+                            <Paper elevation={3} className={classes.paper}>
                                 <Typography variant='h5'>
                                     {about}
                                 </Typography>

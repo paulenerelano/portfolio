@@ -19,7 +19,6 @@ const styles = theme => ({
         minHeight: '100vh'
     },
     paper: {
-        background: theme.palette.background.default,
         margin: '1em',
         padding: '1em',
     },
@@ -37,17 +36,6 @@ class Experience extends Component {
             let delay = (200 * index) + 500
             return (
                 <TimelineItem>
-                    <TimelineOppositeContent>
-                        <TrackVisibility once key={"timeline"+index}>
-                        {({ isVisible }) => 
-                            <Slide direction={index%2===0? "right" : "left"} in={isVisible}
-                                {...(isVisible ? { timeout: delay } : {})}>
-                                <Typography>
-                                    {item.date}
-                                </Typography>
-                            </Slide>}
-                        </TrackVisibility>
-                    </TimelineOppositeContent>
                     <TimelineSeparator>
                         <TimelineDot/>
                         <TimelineConnector />
@@ -57,21 +45,26 @@ class Experience extends Component {
                         {({ isVisible }) => 
                             <Slide direction={index%2===1? "right" : "left"} in={isVisible}
                                 {...(isVisible ? { timeout: delay } : {})}>
-                                    <Paper className={classes.paper}>
-                                        <Typography variant='h5'>
-                                            {item.title}
+                                    <div>
+                                        <Typography color='textSecondary' variant='h5'>
+                                            {item.date}
                                         </Typography>
-                                        <Typography variant="subtitle2" variant='h6'>
-                                            {item.company.name}
-                                        </Typography>
-                                        <Divider/>
-                                        {item.description.map((desc, index) => {
-                                            return (
-                                                <Typography variant="body2" key={"desc"+index}>
-                                                    {"- " + desc}
-                                                </Typography>)
-                                        })}                                                    
-                                    </Paper>
+                                        <Paper className={classes.paper}>
+                                            <Typography variant='h5'>
+                                                {item.title}
+                                            </Typography>
+                                            <Typography variant="subtitle2">
+                                                {item.company.name}
+                                            </Typography>
+                                            <Divider/>
+                                            {item.description.map((desc, index) => {
+                                                return (
+                                                    <Typography variant="body2" key={"desc"+index}>
+                                                        {"- " + desc}
+                                                    </Typography>)
+                                            })}                                                    
+                                        </Paper>
+                                    </div>
                             </Slide>}
                         </TrackVisibility>
                     </TimelineContent>

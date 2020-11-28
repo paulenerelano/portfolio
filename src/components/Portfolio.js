@@ -26,6 +26,7 @@ import Contact from './Contact.js';
 import Skills from './Skills.js';
 import Education from './Education.js';
 import Projects from './Projects.js';
+import { Hidden } from '@material-ui/core';
 
 const DRAWER_WIDTH = 240;
 const styles = theme => ({
@@ -83,28 +84,30 @@ class Portfolio extends Component {
     }
 
     handleMenuItemClick = (index) => {
+        const scrollOpts = {block: "start", inline: "nearest", behavior: 'smooth'};
+
         this.setState({selectedMenuIndex: index})
         switch(index) {
             case 0:
-                this.menu1Ref.current.scrollIntoView({behavior: 'smooth'});
+                this.menu1Ref.current.scrollIntoView(scrollOpts);
                 break;
             case 1:
-                this.menu2Ref.current.scrollIntoView({behavior: 'smooth'});
+                this.menu2Ref.current.scrollIntoView(scrollOpts);
                 break;
             case 2: 
-                this.menu3Ref.current.scrollIntoView({behavior: 'smooth'});
+                this.menu3Ref.current.scrollIntoView(scrollOpts);
                 break;
             case 3:
-                this.menu4Ref.current.scrollIntoView({behavior: 'smooth'});
+                this.menu4Ref.current.scrollIntoView(scrollOpts);
                 break;
             case 4:
-                this.menu5Ref.current.scrollIntoView({behavior: 'smooth'});
+                this.menu5Ref.current.scrollIntoView(scrollOpts);
                 break;
             case 5:
-                this.menu6Ref.current.scrollIntoView({behavior: 'smooth'});
+                this.menu6Ref.current.scrollIntoView(scrollOpts);
                 break;
             default:
-                this.menu1Ref.current.scrollIntoView({behavior: 'smooth'});
+                this.menu1Ref.current.scrollIntoView(scrollOpts);
                 break;
         }
     }
@@ -116,41 +119,43 @@ class Portfolio extends Component {
         return (
             <div className={classes.root}>
                 <ScopedCssBaseline />
-                <Drawer
-                className={classes.drawer}
-                variant="permanent"
-                    classes={{
-                        paper: classes.drawerPaper,
-                    }}
-                    anchor="left"
-                >
-                <div style={{padding: '0.5em'}}>
-                    <Typography variant="h4" fontWeight='fontWeightBold' align='left' gutterBottom>
-                    {data.name}
-                    </Typography>
-                    <Typography variant='h6'>
-                    {data.subtitle}
-                    </Typography>
-                </div>
-                <Divider />
-                <List>
-                    {this.drawerMenu.map((item, index) => {
-                        return (
-                            <ListItem
-                                button
-                                selected={selectedMenuIndex === index}
-                                onClick={() => {this.handleMenuItemClick(index)}}
-                                key={"menu" + index}
-                            >
-                                <ListItemIcon>
-                                {this.getMenuIcon(index)}
-                                </ListItemIcon>
-                                <ListItemText primary={item} />
-                            </ListItem>
-                        );
-                    })}
-                </List>
-                </Drawer>
+                <Hidden mdDown>
+                    <Drawer
+                    className={classes.drawer}
+                    variant="permanent"
+                        classes={{
+                            paper: classes.drawerPaper,
+                        }}
+                        anchor="left"
+                    >
+                        <div style={{padding: '0.5em'}}>
+                            <Typography variant="h4" fontWeight='fontWeightBold' align='left' gutterBottom>
+                            {data.name}
+                            </Typography>
+                            <Typography variant='h6'>
+                            {data.subtitle}
+                            </Typography>
+                        </div>
+                        <Divider />
+                        <List>
+                            {this.drawerMenu.map((item, index) => {
+                                return (
+                                    <ListItem
+                                        button
+                                        selected={selectedMenuIndex === index}
+                                        onClick={() => {this.handleMenuItemClick(index)}}
+                                        key={"menu" + index}
+                                    >
+                                        <ListItemIcon>
+                                        {this.getMenuIcon(index)}
+                                        </ListItemIcon>
+                                        <ListItemText primary={item} />
+                                    </ListItem>
+                                );
+                            })}
+                        </List>
+                    </Drawer>
+                </Hidden>
                 <main className={classes.content}>
                     <div ref={this.menu1Ref}>
                         <About 
@@ -169,7 +174,7 @@ class Portfolio extends Component {
                         <Skills skills={data.skills}/>
                     </div>
                     <div ref={this.menu5Ref}>
-                        <Education/>
+                        <Education education={data.education}/>
                     </div>
                     <div ref={this.menu6Ref}>
                         <Contact 
