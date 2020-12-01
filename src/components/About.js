@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 import TrackVisibility from 'react-on-screen';
 
-import { CssBaseline, Paper, Grow, Grid, Hidden } from '@material-ui/core';
+import { CssBaseline, Paper, Grow, Grid, Hidden, useMediaQuery } from '@material-ui/core';
 import Banner from './Banner';
 
 const styles = theme => ({
@@ -26,8 +26,7 @@ const styles = theme => ({
                 fontSize: '5rem'
             }
         }
-    }
-
+    },
 });
 
 class About extends Component {
@@ -46,7 +45,7 @@ class About extends Component {
                             {...(isVisible ? { timeout: 500 } : {})}
                         >
                             <Grid container>
-                                <Hidden lgUp><Grid item xs={5}></Grid></Hidden>
+                                <Hidden smUp><Grid item xs={5}></Grid></Hidden>
                                 <Grid item xs={7} lg={7}>
                                     <Paper elevation={3} className={classes.paper}>
                                         <Typography variant='h6'>
@@ -66,7 +65,7 @@ class About extends Component {
                                         })}
                                     </Paper>
                                 </Grid>
-                                <Hidden mdDown><Grid item sm={5}></Grid></Hidden>
+                                <Hidden xsDown><Grid item sm={5}></Grid></Hidden>
                             </Grid>
                         </Grow>
                     }
