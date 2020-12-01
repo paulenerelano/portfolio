@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import PhoneIphoneIcon from '@material-ui/icons/PhoneIphone';
 import EmailIcon from '@material-ui/icons/Email';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import DescriptionIcon from '@material-ui/icons/Description';
 import TrackVisibility from 'react-on-screen';
 
 import { CssBaseline, Paper, Grid, Avatar, Tooltip, Grow, Link } from '@material-ui/core';
@@ -23,9 +24,9 @@ const styles = theme => ({
 
 class Projects extends Component {
 
-
     render() {
         const {contact, handleDrawerToggle, classes} = this.props;
+        const resumeLink = process.env.PUBLIC_URL + '/resume.pdf';
 
 
         return (
@@ -74,6 +75,19 @@ class Projects extends Component {
                                     <Grid item xs={10} lg={11}>
                                         <Link href={contact.linkedin} target='_blank'>
                                             <Typography variant='body2'>{contact.linkedin}</Typography>
+                                        </Link>
+                                    </Grid>
+
+                                    <Grid item xs={2} lg={1}>
+                                        <Link href={resumeLink} target='_blank'>
+                                        <Avatar alt='Resume'>
+                                            <Tooltip title="View Paulene's resume"><DescriptionIcon/></Tooltip>
+                                        </Avatar>
+                                        </Link>
+                                    </Grid>
+                                    <Grid item xs={10} lg={11}>
+                                        <Link href={resumeLink} target='_blank'>
+                                            <Typography variant='body2'>View resume</Typography>
                                         </Link>
                                     </Grid>
                                 </Grid>

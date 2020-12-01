@@ -18,7 +18,6 @@ import AmpStoriesIcon from '@material-ui/icons/AmpStories';
 import SchoolIcon from '@material-ui/icons/School';
 import MessageIcon from '@material-ui/icons/Message';
 import HelpIcon from '@material-ui/icons/Help';
-import DescriptionIcon from '@material-ui/icons/Description';
 
 import data from '../data/data.json'
 import About from './About.js';
@@ -69,7 +68,6 @@ class Portfolio extends Component {
         "Skills", 
         "Education", 
         "Contact",
-        "Resume"
     ]
     state = {
         selectedMenuIndex: 0,
@@ -100,8 +98,6 @@ class Portfolio extends Component {
             return <SchoolIcon/>;
         case 5:
             return <MessageIcon/>;
-        case 6: 
-            return <DescriptionIcon/>;
         default:
             return <HelpIcon/>;
         }
@@ -130,18 +126,6 @@ class Portfolio extends Component {
                 break;
             case 5:
                 this.menu6Ref.current.scrollIntoView(scrollOpts);
-                break;
-            case 6:
-                const link = document.createElement('a');
-                link.href = process.env.PUBLIC_URL + '/resume.pdf';
-                link.setAttribute(
-                    'download',
-                    'Resume_RelanoJuliannePaulene.pdf',
-                );
-                
-                document.body.appendChild(link);
-
-                link.click();
                 break;
             default:
                 this.menu1Ref.current.scrollIntoView(scrollOpts);

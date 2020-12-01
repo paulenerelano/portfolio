@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 import TrackVisibility from 'react-on-screen';
 
-import { CssBaseline, Paper, Grow, Grid, Hidden, useMediaQuery } from '@material-ui/core';
+import { CssBaseline, Paper, Grow, Grid, Hidden } from '@material-ui/core';
 import Banner from './Banner';
 
 const styles = theme => ({
