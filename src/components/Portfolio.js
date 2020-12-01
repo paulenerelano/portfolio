@@ -18,7 +18,7 @@ import AmpStoriesIcon from '@material-ui/icons/AmpStories';
 import SchoolIcon from '@material-ui/icons/School';
 import MessageIcon from '@material-ui/icons/Message';
 import HelpIcon from '@material-ui/icons/Help';
-import MenuIcon from '@material-ui/icons/Menu';
+import DescriptionIcon from '@material-ui/icons/Description';
 
 import data from '../data/data.json'
 import About from './About.js';
@@ -27,12 +27,16 @@ import Contact from './Contact.js';
 import Skills from './Skills.js';
 import Education from './Education.js';
 import Projects from './Projects.js';
-import { Hidden, Icon, IconButton } from '@material-ui/core';
+import { Hidden } from '@material-ui/core';
 
 const DRAWER_WIDTH_DEFAULT = 240;
 const styles = theme => ({
     root: {
         display: 'flex',
+        backgroundImage: 'url(https://i.pinimg.com/564x/71/d6/a5/71d6a5b250010f54565957ccbdc6c78e.jpg)',
+        backgroundRepeat: 'repeat',
+        backgroundSize: '50px 50px',
+        backgroundPosition: 'right'
     },
     drawer: {
         flexShrink: 0,
@@ -58,7 +62,15 @@ const styles = theme => ({
 });
 
 class Portfolio extends Component {
-    drawerMenu = ["About", "Experience", "Projects", "Skills", "Education", "Contact"]
+    drawerMenu = [
+        "About", 
+        "Experience", 
+        "Projects", 
+        "Skills", 
+        "Education", 
+        "Contact",
+        "Resume"
+    ]
     state = {
         selectedMenuIndex: 0,
         mobileOpen: false,
@@ -88,16 +100,18 @@ class Portfolio extends Component {
             return <SchoolIcon/>;
         case 5:
             return <MessageIcon/>;
+        case 6: 
+            return <DescriptionIcon/>;
         default:
             return <HelpIcon/>;
         }
     }
 
     handleMenuItemClick = (index) => {
-        // const scrollOpts = {block: "start", inline: "nearest", behavior: 'smooth'};
-        const scrollOpts = true;
+        const scrollOpts = {block: "start", inline: "nearest", behavior: 'smooth'};
 
         this.setState({selectedMenuIndex: index})
+
         switch(index) {
             case 0:
                 this.menu1Ref.current.scrollIntoView(scrollOpts);
@@ -116,6 +130,18 @@ class Portfolio extends Component {
                 break;
             case 5:
                 this.menu6Ref.current.scrollIntoView(scrollOpts);
+                break;
+            case 6:
+                const link = document.createElement('a');
+                link.href = process.env.PUBLIC_URL + '/resume.pdf';
+                link.setAttribute(
+                    'download',
+                    'Resume_RelanoJuliannePaulene.pdf',
+                );
+                
+                document.body.appendChild(link);
+
+                link.click();
                 break;
             default:
                 this.menu1Ref.current.scrollIntoView(scrollOpts);
@@ -185,6 +211,7 @@ class Portfolio extends Component {
                     <div ref={this.menu1Ref}>
                         <About 
                             about={data.about}
+                            aboutNonTech={data.aboutNonTech}
                             handleDrawerToggle={this.handleDrawerToggle}
                             />
                     </div>

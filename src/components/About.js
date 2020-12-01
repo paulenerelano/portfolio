@@ -33,7 +33,7 @@ const styles = theme => ({
 class About extends Component {
 
     render() {
-        const {about, classes, handleDrawerToggle} = this.props;
+        const {about, aboutNonTech, classes, handleDrawerToggle} = this.props;
 
         return (
             <Fragment>
@@ -46,15 +46,27 @@ class About extends Component {
                             {...(isVisible ? { timeout: 500 } : {})}
                         >
                             <Grid container>
-                                <Hidden smUp><Grid item xs={5}></Grid></Hidden>
+                                <Hidden lgUp><Grid item xs={5}></Grid></Hidden>
                                 <Grid item xs={7} lg={7}>
                                     <Paper elevation={3} className={classes.paper}>
                                         <Typography variant='h6'>
-                                            {about}
+                                            {about[0]}
                                         </Typography>
+                                        <Typography variant='subtitle1'>
+                                            {about[1]}
+                                        </Typography>
+                                        <br/>
+                                        <Typography variant='body1'>
+                                            When I'm not developing apps, I do:
+                                        </Typography>
+                                        {aboutNonTech.map((item, index) => {
+                                            return <Typography variant='body2' key={"nontech-" + index}>
+                                                {'- ' + item}
+                                            </Typography>
+                                        })}
                                     </Paper>
                                 </Grid>
-                                <Hidden smDown><Grid item sm={5}></Grid></Hidden>
+                                <Hidden mdDown><Grid item sm={5}></Grid></Hidden>
                             </Grid>
                         </Grow>
                     }

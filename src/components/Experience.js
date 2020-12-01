@@ -7,7 +7,6 @@ import TimelineItem from '@material-ui/lab/TimelineItem';
 import TimelineSeparator from '@material-ui/lab/TimelineSeparator';
 import TimelineConnector from '@material-ui/lab/TimelineConnector';
 import TimelineContent from '@material-ui/lab/TimelineContent';
-import TimelineOppositeContent from '@material-ui/lab/TimelineOppositeContent';
 import TimelineDot from '@material-ui/lab/TimelineDot';
 import TrackVisibility from 'react-on-screen';
 
@@ -16,7 +15,8 @@ import Banner from './Banner';
 
 const styles = theme => ({
     root: {
-        minHeight: '100vh'
+        minHeight: '100vh',
+        overflowX: 'hidden'
     },
     paper: {
         margin: '1em',
@@ -41,7 +41,7 @@ class Experience extends Component {
                         <TimelineConnector />
                     </TimelineSeparator>
                     <TimelineContent>
-                        <TrackVisibility once key={"timeline"+index}>
+                        <TrackVisibility once partialVisibility key={"timeline"+index}>
                         {({ isVisible }) => 
                             <Slide direction={index%2===1? "right" : "left"} in={isVisible}
                                 {...(isVisible ? { timeout: delay } : {})}>
@@ -74,7 +74,7 @@ class Experience extends Component {
     }
 
     render() {
-        const {classes, handleDrawerToggle, theme} = this.props;
+        const {classes, handleDrawerToggle} = this.props;
 
 
         return (
@@ -82,13 +82,13 @@ class Experience extends Component {
                 <div className={classes.root}>
                 <CssBaseline/>
                 <Banner title="Experience" handleDrawerToggle={handleDrawerToggle}/>
-                <Hidden smDown>
+                <Hidden mdDown>
                     <Timeline align='alternate'>
                         {this.getExperience()}
                     </Timeline>
                 </Hidden>
-                <Hidden mdUp>
-                    <Timeline align='right'>
+                <Hidden lgUp>
+                    <Timeline align='left'>
                         {this.getExperience()}
                     </Timeline>
                 </Hidden>

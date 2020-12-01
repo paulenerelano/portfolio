@@ -1,5 +1,6 @@
 import { red } from '@material-ui/core/colors';
 import { createMuiTheme } from '@material-ui/core/styles';
+import createBreakpoints from '@material-ui/core/styles/createBreakpoints';
 
 const colors = {
   drawerFont: '#F9F9F7', // drawer font
@@ -14,6 +15,8 @@ const colors = {
 
   black: '#000000',
 }
+
+const breakpoints = createBreakpoints({})
 
 // A custom theme for this app
 const theme = createMuiTheme({
@@ -88,6 +91,15 @@ const theme = createMuiTheme({
     MuiTimelineConnector: {
       root: {
         backgroundColor: colors.textSecondary
+      }
+    },
+    MuiTimelineItem : {
+      missingOppositeContent: {
+        '&::before' : {
+          [breakpoints.down('md')] : {
+            flex:0,
+          }
+        }
       }
     }
   }

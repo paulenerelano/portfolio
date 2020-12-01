@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import { Component } from "react";
 import { withStyles } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 
 
-import { CssBaseline, Paper, IconButton, Hidden, Grid } from '@material-ui/core';
+import { CssBaseline, Paper, Hidden, Grid } from '@material-ui/core';
 import data from '../data/data.json'
 
 const styles = theme => ({
@@ -24,7 +24,7 @@ class Banner extends Component {
 
 
     render() {
-        const {title, classes, handleDrawerToggle} = this.props;
+        const {title, classes} = this.props;
 
 
         return (

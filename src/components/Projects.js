@@ -13,7 +13,15 @@ const styles = theme => ({
     },
     card: {
         margin: '1em',
-        minHeight: '55vh',
+        [theme.breakpoints.down('sm')] : {
+            minHeight: '20vh',
+        },
+        [theme.breakpoints.only('md')] : {
+            minHeight: '30vh',
+        },
+        [theme.breakpoints.up('lg')] : {
+            minHeight: '58vh',
+        }
     },
     media: {
         height: 140,
@@ -30,7 +38,7 @@ class Projects extends Component {
                 {...(isVisible ? { timeout: 500 + (200 * index) } : {})}
                 key={"proj" + index}
             >
-                <Grid item xs={12} lg={4} >
+                <Grid item xs={12} md={6} lg={4} >
                     <Card className={classes.card}>
                         <CardActionArea>
                             <CardMedia 

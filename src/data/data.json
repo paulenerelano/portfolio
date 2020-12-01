@@ -6,7 +6,16 @@
         "email": "paulene.relano@gmail.com",
         "linkedin": "https://www.linkedin.com/in/paulenerelano/"
     },
-    "about": "Software engineer with 6 years of experience in embedded applications, protocol stacks, mobile and web development. Able to easily adapt to different projects on different technology domains with minimal ramp-up time.",
+    "about2": "Software engineer with 6 years of experience in embedded applications, protocol stacks, mobile and web development. Able to easily adapt to different projects on different technology domains with minimal ramp-up time.",
+    "about": [
+            "Hi! I'm a software engineer with over 6 years of experience.",
+            "I enjoy creating awesome applications, specially user-facing ones."
+    ],
+    "aboutNonTech": [
+        "Photography (specially street photography).",
+        "PC and Console games (DOTA, Animal Crossing, etc)",
+        "Hiking"
+    ],
     "experience": [
         {
             "date": "October 2020 – Present",
@@ -33,7 +42,7 @@
             "description": [
                 "Created Functional Specifications and Design of software products",
                 "Project Lead/Developer for a Semiconductor manufacturing equipment application",
-                "Interfaced with Japanese customers for relaying status and technical discussions (video conference, email,face-to-face discussion)",
+                "Communication with Japanese customers for status reporting and technical discussions (VC, email,face-to-face discussion)",
                 "Trained and mentored new project members"
             ]
         },
@@ -46,8 +55,7 @@
             },
             "employmentType": "Full-time",
             "description": [
-                "Assigned to parent company to support Japanese customers in the development of  company’s Bluetooth Protocol Stack",
-                "Porting of company’s Bluetooth Protocol Stack to actual product environmentContributed to the development and design of a test automation framework used in Bluetooth Qualification Program",
+                "Assigned to parent company to support Japanese customers in the development of  company’s Bluetooth Protocol Stack",                
                 "Performed investigation and prototype creation of other Bluetooth Protocol Stack and several IoT protocols that can be used in the company’s products"
             ]
         },
@@ -74,7 +82,8 @@
             },
             "employmentType": "Full-time",
             "description": [
-                "Contributed to the development and design of a test automation framework. This framework reduced the effort needed to execute tests required by the Bluetooth Qualification Program"
+                "Developer for a Bluetooth application product and Android/iOS test application",
+                "Developed and designed a test automation framework for integration testing of product."
             ]
         }
     ],
