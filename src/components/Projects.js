@@ -4,7 +4,7 @@ import { Component } from "react";
 import { withStyles } from '@material-ui/styles';
 import TrackVisibility from 'react-on-screen';
 
-import { CssBaseline, Grow, Grid, Card, CardActionArea, CardMedia, CardContent, Typography, Link } from '@material-ui/core';
+import { CssBaseline, Grow, Grid, Card, CardMedia, CardContent, Typography, Link } from '@material-ui/core';
 import Banner from './Banner';
 
 const styles = theme => ({
@@ -40,12 +40,13 @@ class Projects extends Component {
             >
                 <Grid item xs={12} md={6} lg={4} >
                     <Card className={classes.card}>
-                        <CardActionArea>
+                        <Link href={project.url} target="_blank">
                             <CardMedia 
                                 image={project.thumbnail}
                                 className={classes.media}
                             />
-                            <CardContent>
+                        </Link>
+                        <CardContent>
                                 <Typography variant='h5'>
                                     <Link href={project.url} target="_blank">
                                         {project.name}
@@ -55,7 +56,6 @@ class Projects extends Component {
                                     {project.description}
                                 </Typography>
                             </CardContent>
-                        </CardActionArea>
                     </Card>
                 </Grid>
             </Grow>
